@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">Home Rent App</string>
+    <string name="name_is_required">Name is Required</string>
+    <string name="email_is_required">Email is Required</string>
+    <string name="mNumber_is_required">Mobile Number is Required</string>
+    <string name="password_is_required">Password is Required</string>
+    <string name="confirmPwd_is_required">Confirm Password is Required</string>
+    <string name="both_password_must_be_match">Both Password Must be Match</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="enter_mobile_number">Enter Mobile Number</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="enter_confirm_password">Enter Confirm Password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="login">Login</string>
+    <string name="enter_valid_email_address">Enter Valid Email Address</string>
+    <string name="password_length">Invalid Password. minimum 6 characters,maximum 10 characters</string>
+    <string name="enter_valid_mobile_number">Enter Valid Mobile Number</string>
 </resources>
