@@ -25,4 +25,6 @@
     <string name="setting">Setting</string>
     <string name="help">Help</string>
     <string name="logout">Logout</string>
+    <string name="profile_image">Profile image</string>
+    <string name="drawerButtonToggle">drawerButtonToggle</string>
 </resources>

@@ -17,6 +17,7 @@
                 android:backgroundTint="@color/cardview_light_background" >
 
                 <ImageView
+                    android:contentDescription="@string/profile_image"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/person"
@@ -30,7 +31,7 @@
         android:layout_height="50dp"
         android:text="user name"
         android:textColor="@color/black"
-        android:textSize="25dp"
+
         android:layout_gravity="center"
         android:textStyle="bold"
         android:autoSizeTextType="uniform"/>
