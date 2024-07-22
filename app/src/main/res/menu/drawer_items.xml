@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/group1">
+
+        <item
+            android:title="@string/home"
+            android:id="@+id/Home"
+            />
+        <item
+            android:title="@string/profile"
+            android:id="@+id/Profile"/>
+
+        <item
+            android:id="@+id/Nearby"
+            android:title="@string/nearby"
+            />
+
+    </group>
+
+    <group
+        android:id="@+id/group2">
+
+    <item
+        android:title="@string/saved"
+        android:id="@+id/Saved"
+        />
+    <item
+        android:title="@string/notification"
+        android:id="@+id/Notification"
+        />
+    <item
+        android:title="@string/message"
+        android:id="@+id/Message"
+        />
+
+    </group>
+
+    <group
+        android:id="@+id/group3">
+    <item
+        android:title="@string/setting"
+        android:id="@+id/Setting"
+        />
+    <item
+        android:title="@string/help"
+        android:id="@+id/Help"
+        />
+    <item
+        android:title="@string/logout"
+        android:id="@+id/Logout"
+        />
+    </group>
+
+</menu>
