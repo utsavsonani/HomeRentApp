@@ -28,4 +28,6 @@
     <string name="logout">Logout</string>
     <string name="profile_image">Profile image</string>
     <string name="drawerButtonToggle">drawerButtonToggle</string>
+    <string name="open_navigation_drawer">Open navigation drawer</string>
+    <string name="colse_navigation_drawer">Colse navigation drawer</string>
 </resources>

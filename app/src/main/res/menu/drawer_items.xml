@@ -2,7 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group
-        android:id="@+id/group1">
+        android:id="@+id/group1"
+        android:checkableBehavior="single">
 
         <item
             android:title="@string/home"
@@ -20,6 +21,7 @@
     </group>
 
     <group
+        android:checkableBehavior="single"
         android:id="@+id/group2">
 
     <item
@@ -38,6 +40,7 @@
     </group>
 
     <group
+        android:checkableBehavior="single"
         android:id="@+id/group3">
     <item
         android:title="@string/setting"
