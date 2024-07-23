@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "771706258830",
+    "project_id": "home-rent-app-fe469",
+    "storage_bucket": "home-rent-app-fe469.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:771706258830:android:58be23304e8d2c54c890df",
+        "android_client_info": {
+          "package_name": "com.example.homerentapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmF-I-9o4ElnvFjd8YM_Qgx5dcxklPKhc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

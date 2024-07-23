@@ -12,6 +12,7 @@
     <string name="enter_password">Enter Password</string>
     <string name="enter_confirm_password">Enter Confirm Password</string>
     <string name="sign_up">Sign Up</string>
+    <string name="sign_in">Sign In</string>
     <string name="login">Login</string>
     <string name="enter_valid_email_address">Enter Valid Email Address</string>
     <string name="password_length">Invalid Password. minimum 6 characters,maximum 10 characters</string>
