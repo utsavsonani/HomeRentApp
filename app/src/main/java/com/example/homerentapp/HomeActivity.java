@@ -38,8 +38,8 @@ public class HomeActivity extends AppCompatActivity{
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-//        toolbar  = findViewById(R.id.toolbar);
-//        drawerLayout   = findViewById(R.id.drawerLayout);
+        toolbar  = findViewById(R.id.toolbar);
+        drawerLayout   = findViewById(R.id.drawerLayout);
 
         setSupportActionBar(toolbar);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -55,7 +55,7 @@ public class HomeActivity extends AppCompatActivity{
                 if(item.getItemId() == R.id.Home){
                     Toast.makeText(HomeActivity.this, "Home", Toast.LENGTH_SHORT).show();
                     return true;
-                }
+                } 
                 else if(item.getItemId() == R.id.Profile){
                     Toast.makeText(HomeActivity.this, "Profile", Toast.LENGTH_SHORT).show();
                     return true;
@@ -87,13 +87,12 @@ public class HomeActivity extends AppCompatActivity{
                 else if(item.getItemId() == R.id.Logout){
                     Toast.makeText(HomeActivity.this, "Logout", Toast.LENGTH_SHORT).show();
                     return true;
-                }
+                } 
                 else {
                     return false;
                 }
             }
         });
-
 
     }
 
