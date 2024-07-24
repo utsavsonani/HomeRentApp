@@ -56,28 +56,36 @@ public class RegistrationActivity extends AppCompatActivity {
             }
         });
 
-
         binding.btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = binding.name.getText().toString();
-                String email = binding.email.getText().toString();
-                String mNumber = binding.mobileNumber.getText().toString();
-                String password = binding.password.getText().toString();
-                String cPassword = binding.confirmPwd.getText().toString();
-
-                if (inputValidation()) {
-                    User userData = new User(name, email, mNumber, userType, password);
-                    Log.d("akak", " "+userData.getName() + userData.getEmail() + userData.getMobileNumber() + userData.getUserType() + userData.getPassword());
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                     finish();
-                } else {
-                    Toast.makeText(getApplicationContext(), "Please Enter Valid Information", Toast.LENGTH_LONG).show();
-                }
-
-
             }
         });
+
+
+//        binding.btnSignUp.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                String name = binding.name.getText().toString();
+//                String email = binding.email.getText().toString();
+//                String mNumber = binding.mobileNumber.getText().toString();
+//                String password = binding.password.getText().toString();
+//                String cPassword = binding.confirmPwd.getText().toString();
+//
+//                if (inputValidation()) {
+//                    User userData = new User(name, email, mNumber, userType, password);
+//                    Log.d("akak", " "+userData.getName() + userData.getEmail() + userData.getMobileNumber() + userData.getUserType() + userData.getPassword());
+//                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+//                    finish();
+//                } else {
+//                    Toast.makeText(getApplicationContext(), "Please Enter Valid Information", Toast.LENGTH_LONG).show();
+//                }
+//
+//
+//            }
+//        });
 
         binding.btnAlreadyAc.setOnClickListener(new View.OnClickListener() {
             @Override
