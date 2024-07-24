@@ -11,7 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.databinding.DataBindingUtil;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.homerentapp.databinding.ActivityHomeBinding;
@@ -21,7 +20,7 @@ import com.google.android.material.navigation.NavigationView;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    ActivityHomeBinding binding;
+    private ActivityHomeBinding binding;
 //    DrawerLayout drawerLayout;
     ImageButton imageButtonToggle;
 //    Toolbar toolbar;
@@ -30,8 +29,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-//        setContentView(R.layout.activity_home);
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_home);
+        binding = ActivityHomeBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         getMenuInflater().inflate(R.menu.drawer_items, binding.toolbar.getMenu());
 
 
