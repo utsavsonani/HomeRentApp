@@ -68,7 +68,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
                 if (inputValidation()) {
                     User userData = new User(name, email, mNumber, userType, password);
-                    Log.d("akak", userData.toString());
+                    Log.d("akak", " "+userData.getName() + userData.getEmail() + userData.getMobileNumber() + userData.getUserType() + userData.getPassword());
                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     finish();
                 } else {

@@ -2,11 +2,12 @@ package com.example.homerentapp;
 
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
-import com.example.homerentapp.R;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -22,12 +23,11 @@ import com.google.android.material.navigation.NavigationView;
 
 
 
-public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class HomeActivity extends AppCompatActivity{
 
     private ActivityHomeBinding binding;
-//    DrawerLayout drawerLayout;
-    ImageButton imageButtonToggle;
-//    Toolbar toolbar;
+    DrawerLayout drawerLayout;
+    Toolbar toolbar;
 
 
 
@@ -37,78 +37,64 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         EdgeToEdge.enable(this);
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        getMenuInflater().inflate(R.menu.drawer_items, binding.toolbar.getMenu());
 
+        toolbar  = findViewById(R.id.toolbar);
+        drawerLayout   = findViewById(R.id.drawerLayout);
 
-
-//        toolbar  = findViewById(R.id.toolbar);
-//        drawerLayout   = findViewById(R.id.drawerLayout);
-
-//        imageButtonToggle = findViewById(R.id.buttonDrawerToggle);
-
-//        imageButtonToggle.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                drawerLayout.open();
-//            }
-//        });
-
-        setSupportActionBar(binding.toolbar);
-
-//        binding.navigationview.bringToFront();
-
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,binding.drawerLayout,binding.toolbar,R.string.open_navigation_drawer,R.string.colse_navigation_drawer);
-        binding.drawerLayout.addDrawerListener(toggle);
+        setSupportActionBar(toolbar);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this,drawerLayout,toolbar,R.string.open_navigation_drawer,R.string.colse_navigation_drawer);
+        drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
+        binding.navigationview.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Log.d("akak", "" + item);
+                Log.d("akak", "" + item.getItemId());
+                if(item.getItemId() == R.id.Home){
+                    Toast.makeText(HomeActivity.this, "Home", Toast.LENGTH_SHORT).show();
+                    return true;
+                } 
+                else if(item.getItemId() == R.id.Profile){
+                    Toast.makeText(HomeActivity.this, "Profile", Toast.LENGTH_SHORT).show();
+                    return true;
+                }
+                else if(item.getItemId() == R.id.Nearby){
+                    Toast.makeText(HomeActivity.this, "Nearby", Toast.LENGTH_SHORT).show();
+                    return true;
+                }
+                else if(item.getItemId() == R.id.Saved){
+                    Toast.makeText(HomeActivity.this, "Saved", Toast.LENGTH_SHORT).show();
+                    return true;
+                }
+                else if(item.getItemId() == R.id.Notification){
+                    Toast.makeText(HomeActivity.this, "Notification", Toast.LENGTH_SHORT).show();
+                    return true;
+                }
+                else if(item.getItemId() == R.id.Message){
+                    Toast.makeText(HomeActivity.this, "Message", Toast.LENGTH_SHORT).show();
+                    return true;
+                }
+                else if(item.getItemId() == R.id.Setting){
+                    Toast.makeText(HomeActivity.this, "Setting", Toast.LENGTH_SHORT).show();
+                    return true;
+                }
+                else if(item.getItemId() == R.id.Help){
+                    Toast.makeText(HomeActivity.this, "Help", Toast.LENGTH_SHORT).show();
+                    return true;
+                }
+                else if(item.getItemId() == R.id.Logout){
+                    Toast.makeText(HomeActivity.this, "Logout", Toast.LENGTH_SHORT).show();
+                    return true;
+                } 
+                else {
+                    return false;
+                }
+            }
+        });
 
-
-        binding.navigationview.setNavigationItemSelectedListener(this);
-
-        final int profile = R.id.Profile;
-        final int nearby = R.id.Nearby;
-        final int saved = R.id.Saved;
-        final int notification = R.id.Notification;
-        final int message = R.id.Message;
-        final int setting = R.id.Setting;
-        final int help = R.id.Help;
-        final int logout = R.id.Logout;
-
-
-
-//        int a = R.id.Home;
     }
-
-
-
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        int home  = R.id.Home;
-        String hometext = String.valueOf(R.string.home)      ;
-        Toast.makeText(this, hometext, Toast.LENGTH_SHORT).show();
-
-
-        switch (item.getItemId()) {
-
-//            case home:
-//                // Handle the Home menu item click
-//                Toast.makeText(this, "Home clicked!", Toast.LENGTH_SHORT).show();
-//                break;
-//            case R.id.Profile:
-//                // Handle the Profile menu item click
-//                Toast.makeText(this, "Profile clicked!", Toast.LENGTH_SHORT).show();
-//                break;
-//            case R.id.Nearby:
-//                // Handle the Nearby menu item click
-//                Toast.makeText(this, "Nearby clicked!", Toast.LENGTH_SHORT).show();
-//                break;
-//            // Add other cases for remaining menu items
-        }
-        return true;
-    }
-
-
 
 
 }
