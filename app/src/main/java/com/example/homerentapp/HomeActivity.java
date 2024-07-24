@@ -1,35 +1,28 @@
 package com.example.homerentapp;
 
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageButton;
 import android.widget.Toast;
-
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
-
 import com.example.homerentapp.databinding.ActivityHomeBinding;
 import com.google.android.material.navigation.NavigationView;
-
-
-
-
+import com.google.firebase.auth.FirebaseAuth;
 
 public class HomeActivity extends AppCompatActivity{
 
     private ActivityHomeBinding binding;
     DrawerLayout drawerLayout;
     Toolbar toolbar;
-
-
+    private FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +30,9 @@ public class HomeActivity extends AppCompatActivity{
         EdgeToEdge.enable(this);
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        
+        SharedPreferences.Editor sharedPre = getSharedPreferences(getString(R.string.pref_file_key),MODE_PRIVATE).edit();
+        auth = FirebaseAuth.getInstance();
 
         toolbar  = findViewById(R.id.toolbar);
         drawerLayout   = findViewById(R.id.drawerLayout);
@@ -85,7 +81,12 @@ public class HomeActivity extends AppCompatActivity{
                     return true;
                 }
                 else if(item.getItemId() == R.id.Logout){
-                    Toast.makeText(HomeActivity.this, "Logout", Toast.LENGTH_SHORT).show();
+                    auth.signOut();
+                    sharedPre.putBoolean(getString(R.string.login_flag_key),false);
+                    sharedPre.apply();
+                    Toast.makeText(HomeActivity.this, "Logout Successfully", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(HomeActivity.this,LoginActivity.class));
+                    finish();
                     return true;
                 } 
                 else {

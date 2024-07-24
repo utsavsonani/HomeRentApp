@@ -1,6 +1,7 @@
 package com.example.homerentapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
@@ -10,13 +11,21 @@ import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import com.example.homerentapp.databinding.ActivityRegistrationBinding;
 import com.example.homerentapp.model.User;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.ktx.Firebase;
 
 
 public class RegistrationActivity extends AppCompatActivity {
@@ -24,6 +33,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private ActivityRegistrationBinding binding;
     private FirebaseAuth auth;
     private String userType = "";
+    private DatabaseReference database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +49,9 @@ public class RegistrationActivity extends AppCompatActivity {
 
         String[] arrUserType = {"User", "Broker"};
         auth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance().getReference();
+        SharedPreferences.Editor sharedpre = getSharedPreferences(getString(R.string.pref_file_key),MODE_PRIVATE).edit();
+
         Log.d("akak", "" + auth.getCurrentUser());
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, arrUserType);
@@ -56,36 +69,57 @@ public class RegistrationActivity extends AppCompatActivity {
             }
         });
 
+
         binding.btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
-                    finish();
+                String name = binding.name.getText().toString();
+                String email = binding.email.getText().toString();
+                String mNumber = binding.mobileNumber.getText().toString();
+                String password = binding.password.getText().toString();
+
+                if (inputValidation()) {
+                       auth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()){
+                                String userId = auth.getUid();
+                                User userData = new User(name, email, mNumber, userType, password);
+
+                                database.child(userData.getUserType()).child(userId).setValue(userData).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        startActivity(new Intent(getApplicationContext(),HomeActivity.class));
+                                        sharedpre.putBoolean(getString(R.string.login_flag_key),true);
+                                        sharedpre.apply();
+                                        Toast.makeText(RegistrationActivity.this, "Registration Successfully", Toast.LENGTH_SHORT).show();
+                                        finish();
+                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Toast.makeText(RegistrationActivity.this, " " + e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+
+                            }
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(RegistrationActivity.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+
+                } else {
+                    Toast.makeText(getApplicationContext(), "Please Enter Valid Information", Toast.LENGTH_LONG).show();
+                }
+
+
             }
         });
-
-
-//        binding.btnSignUp.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                String name = binding.name.getText().toString();
-//                String email = binding.email.getText().toString();
-//                String mNumber = binding.mobileNumber.getText().toString();
-//                String password = binding.password.getText().toString();
-//                String cPassword = binding.confirmPwd.getText().toString();
-//
-//                if (inputValidation()) {
-//                    User userData = new User(name, email, mNumber, userType, password);
-//                    Log.d("akak", " "+userData.getName() + userData.getEmail() + userData.getMobileNumber() + userData.getUserType() + userData.getPassword());
-//                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
-//                    finish();
-//                } else {
-//                    Toast.makeText(getApplicationContext(), "Please Enter Valid Information", Toast.LENGTH_LONG).show();
-//                }
-//
-//
-//            }
-//        });
 
         binding.btnAlreadyAc.setOnClickListener(new View.OnClickListener() {
             @Override

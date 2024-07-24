@@ -1,6 +1,7 @@
 package com.example.homerentapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 
@@ -23,9 +24,17 @@ public class SplashScreenActivity extends AppCompatActivity {
             return insets;
         });
 
+        SharedPreferences sharedPre = getSharedPreferences(getString(R.string.pref_file_key),MODE_PRIVATE);
+        Boolean check = sharedPre.getBoolean(getString(R.string.login_flag_key),false);
+
         new Handler().postDelayed(() -> {
-            startActivity(new Intent(getApplicationContext(), RegistrationActivity.class));
-            finish();
+            if (check) {
+                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                finish();
+            }else {
+                startActivity(new Intent(getApplicationContext(), RegistrationActivity.class));
+                finish();
+            }
         },3500);
 
     }

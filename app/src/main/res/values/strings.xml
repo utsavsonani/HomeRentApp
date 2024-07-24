@@ -17,6 +17,8 @@
     <string name="enter_valid_email_address">Enter Valid Email Address</string>
     <string name="password_length">Invalid Password. minimum 6 characters,maximum 10 characters</string>
     <string name="enter_valid_mobile_number">Enter Valid Mobile Number</string>
+    <string name="pref_file_key">UserData</string>
+    <string name="login_flag_key">loginflag</string>
     <string name="home">Home</string>
     <string name="profile">Profile</string>
     <string name="nearby">Nearby</string>
