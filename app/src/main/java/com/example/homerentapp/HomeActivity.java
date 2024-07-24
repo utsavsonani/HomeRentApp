@@ -1,10 +1,12 @@
 package com.example.homerentapp;
 
+
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageButton;
 import android.widget.Toast;
+import com.example.homerentapp.R;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -18,12 +20,16 @@ import com.google.android.material.navigation.NavigationView;
 
 
 
+
+
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private ActivityHomeBinding binding;
 //    DrawerLayout drawerLayout;
     ImageButton imageButtonToggle;
 //    Toolbar toolbar;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,9 +61,22 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         binding.drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
+
+
         binding.navigationview.setNavigationItemSelectedListener(this);
 
+        final int profile = R.id.Profile;
+        final int nearby = R.id.Nearby;
+        final int saved = R.id.Saved;
+        final int notification = R.id.Notification;
+        final int message = R.id.Message;
+        final int setting = R.id.Setting;
+        final int help = R.id.Help;
+        final int logout = R.id.Logout;
 
+
+
+//        int a = R.id.Home;
     }
 
 
@@ -65,11 +84,30 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        int home  = R.id.Home;
+        String hometext = String.valueOf(R.string.home)      ;
+        Toast.makeText(this, hometext, Toast.LENGTH_SHORT).show();
+
+
         switch (item.getItemId()) {
 
+//            case home:
+//                // Handle the Home menu item click
+//                Toast.makeText(this, "Home clicked!", Toast.LENGTH_SHORT).show();
+//                break;
+//            case R.id.Profile:
+//                // Handle the Profile menu item click
+//                Toast.makeText(this, "Profile clicked!", Toast.LENGTH_SHORT).show();
+//                break;
+//            case R.id.Nearby:
+//                // Handle the Nearby menu item click
+//                Toast.makeText(this, "Nearby clicked!", Toast.LENGTH_SHORT).show();
+//                break;
+//            // Add other cases for remaining menu items
         }
         return true;
     }
+
 
 
 
