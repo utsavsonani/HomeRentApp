@@ -3,6 +3,18 @@ package com.example.homerentapp.util;
 import android.app.Application;
 
 public class HomeRentApi extends Application {
+    private String brokerId;
+    private String brokerName;
+
+    public HomeRentApi(String brokerId, String brokerName, String userName, String userId, String phoneNumber, String userType) {
+        this.brokerId = brokerId;
+        this.brokerName = brokerName;
+        this.userName = userName;
+        this.userId = userId;
+        this.phoneNumber = phoneNumber;
+        this.userType = userType;
+    }
+
     private String userName;
     private String userId;
     private String phoneNumber;
@@ -28,8 +40,25 @@ public class HomeRentApi extends Application {
         this.userType = userType;
     }
 
+    public String getBrokerId() {
+        return brokerId;
+    }
 
+    public void setBrokerId(String brokerId) {
+        this.brokerId = brokerId;
+    }
 
+    public String getBrokerName() {
+        return brokerName;
+    }
+
+    public void setBrokerName(String brokerName) {
+        this.brokerName = brokerName;
+    }
+
+    public static void setInstance(HomeRentApi instance) {
+        HomeRentApi.instance = instance;
+    }
 
     public String getUserName() {
         return userName;
