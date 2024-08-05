@@ -31,7 +31,6 @@
         android:layout_height="50dp"
         android:text="user name"
         android:textColor="@color/black"
-
         android:layout_gravity="center"
         android:textStyle="bold"
         android:autoSizeTextType="uniform"/>

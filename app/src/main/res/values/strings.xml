@@ -34,4 +34,14 @@
     <string name="colse_navigation_drawer">Colse navigation drawer</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="todo">TODO</string>
+    <string name="todo1">TODO</string>
+    <string name="enter_propety_type_like_house_apartment">enter propety type like house, apartment</string>
+    <string name="upload_image">Upload Image</string>
+    <string name="buliding_society_name">buliding/society name</string>
+    <string name="how_many_bhk">How Many BHk</string>
+    <string name="monthly_rent">Monthly Rent</string>
+    <string name="security_deposit">Security Deposit</string>
+    <string name="save">Save</string>
+    <string name="location">Location</string>
 </resources>

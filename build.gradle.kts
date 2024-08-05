@@ -3,3 +3,13 @@ plugins {
     alias(libs.plugins.android.application) apply false
     id("com.google.gms.google-services") version "4.4.2" apply false
 }
+buildscript {
+    repositories {
+        // ... other repositories like mavenCentral() or jcenter()
+        google() // Make sure to include the Google repository
+    }
+    dependencies {
+        // ... other dependencies
+        classpath("com.google.gms:google-services:4.4.2")
+    }
+}
