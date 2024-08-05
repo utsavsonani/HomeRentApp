@@ -57,7 +57,7 @@
     </group>
 
     <item
-        android:id="@+id/Logoout"
+        android:id="@+id/Logout"
         android:title="@string/logout"
 
         />

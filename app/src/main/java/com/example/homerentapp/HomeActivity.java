@@ -90,7 +90,7 @@ public class HomeActivity extends AppCompatActivity{
                     drawerLayout.close();
                     return true;
                 }
-                else if(item.getItemId() == R.id.Logoout){
+                else if(item.getItemId() == R.id.Logout){
 
                     auth.signOut();
                     sharedPre.putBoolean(getString(R.string.login_flag_key),false);
