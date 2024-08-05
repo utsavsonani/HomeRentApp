@@ -122,6 +122,7 @@ public class SplashScreenActivity extends AppCompatActivity {
 
                         }else{
                             Toast.makeText(getApplicationContext(),"something worng",Toast.LENGTH_LONG).show();
+                            startActivity(new Intent(SplashScreenActivity.this, RegistrationActivity.class));
                         }
                     }
                 });
