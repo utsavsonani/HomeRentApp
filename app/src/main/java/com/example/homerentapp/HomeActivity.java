@@ -6,6 +6,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -23,10 +25,13 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class HomeActivity extends AppCompatActivity{
 
+
     private ActivityHomeBinding binding;
     DrawerLayout drawerLayout;
     Toolbar toolbar;
-    private FirebaseAuth auth;
+    private FirebaseAuth firebaseAuth;
+
+    ImageView profile_image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,17 +40,25 @@ public class HomeActivity extends AppCompatActivity{
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        SharedPreferences.Editor sharedPre = getSharedPreferences(getString(R.string.pref_file_key),MODE_PRIVATE).edit();
-        auth = FirebaseAuth.getInstance();
+
+        firebaseAuth = FirebaseAuth.getInstance();
 
         toolbar  = findViewById(R.id.toolbar);
         drawerLayout   = findViewById(R.id.drawerLayout);
+        profile_image = findViewById(R.id.Profile_image);
 
         setSupportActionBar(toolbar);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this,drawerLayout,toolbar,R.string.open_navigation_drawer,R.string.colse_navigation_drawer);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+
+        profile_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                
+            }
+        });
 
         binding.navigationview.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -92,9 +105,7 @@ public class HomeActivity extends AppCompatActivity{
                 }
                 else if(item.getItemId() == R.id.Logout){
 
-                    auth.signOut();
-                    sharedPre.putBoolean(getString(R.string.login_flag_key),false);
-                    sharedPre.apply();
+                    firebaseAuth.signOut();
                     Toast.makeText(HomeActivity.this, "Logout Successfully", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(HomeActivity.this,LoginActivity.class));
                     finish();

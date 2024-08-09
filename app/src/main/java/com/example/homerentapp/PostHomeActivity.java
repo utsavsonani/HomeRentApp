@@ -59,7 +59,7 @@ public class PostHomeActivity extends AppCompatActivity {
         binding.AddHomed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(PostHomeActivity.this,Add_Home_Activity.class));
+                startActivity(new Intent(PostHomeActivity.this, PostPropertyActivity.class));
             }
         });
 

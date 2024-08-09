@@ -55,4 +55,9 @@ dependencies {
     implementation("com.google.firebase:firebase-auth:23.0.0")
     implementation("com.google.firebase:firebase-firestore:25.0.0")
     implementation("com.google.firebase:firebase-storage:21.0.0")
+    implementation ("androidx.viewpager2:viewpager2:1.0.0")
+    implementation ("com.github.bumptech.glide:glide:4.11.0")
+    implementation ("com.squareup.picasso:picasso:2.71828")
+
+
 }

@@ -11,6 +11,45 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <androidx.viewpager2.widget.ViewPager2
+
+            android:id="@+id/viewPager"
+            android:layout_width="397dp"
+            android:layout_height="210dp"
+            android:layout_marginTop="16dp"
+            android:layout_weight="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView"/>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="397dp"
+            android:layout_height="210dp"
+            android:layout_marginTop="16dp"
+            android:layout_weight="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:srcCompat="@drawable/common_google_signin_btn_text_dark_focused" />
+
+
+        <Button
+            android:id="@+id/upload_image_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="@string/upload_image"
+            android:textAllCaps="false"
+            android:textColor="#E91E63"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/textView"
@@ -28,17 +67,17 @@
 
 
 
+
         <TextView
             android:id="@+id/tvPropertyType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="25dp"
             android:fontFamily="@font/montserrat_medium_500"
             android:text="Property type"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toBottomOf="@+id/upload_image_button" />
 
         <RadioGroup
             android:id="@+id/radioGroup"
@@ -69,12 +108,13 @@
                 android:layout_height="45dp"
                 android:layout_marginStart="10dp"
                 android:layout_weight="1"
-                android:buttonTint="@color/light_blue"
                 android:fontFamily="@font/albertsans_medium"
                 android:text="Commercial"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
+
+
 
         </RadioGroup>
 
@@ -117,7 +157,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_weight="1"
-                android:buttonTint="@color/light_blue"
                 android:fontFamily="@font/albertsans_medium"
                 android:text="2BHK"
                 android:textAllCaps="false"
@@ -129,7 +168,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_weight="1"
-                android:buttonTint="@color/light_blue"
                 android:fontFamily="@font/albertsans_medium"
                 android:text="3BHK"
                 android:textAllCaps="false"
@@ -141,7 +179,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_weight="1"
-                android:buttonTint="@color/light_blue"
                 android:fontFamily="@font/albertsans_medium"
                 android:text="4BHK"
                 android:textAllCaps="false"
