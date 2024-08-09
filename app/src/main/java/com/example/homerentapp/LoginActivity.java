@@ -3,7 +3,6 @@ package com.example.homerentapp;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.AdapterView;
@@ -26,8 +25,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -49,9 +46,9 @@ public class LoginActivity extends AppCompatActivity {
 
 //    firestore collation
 
-    private FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
-    private CollectionReference collectionReferenceForUser = firebaseFirestore.collection("Users");
-    private CollectionReference collectionReferenceForBroker = firebaseFirestore.collection("Broker");
+    private final FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+    private final CollectionReference collectionReferenceForUser = firebaseFirestore.collection("Users");
+    private final CollectionReference collectionReferenceForBroker = firebaseFirestore.collection("Broker");
 
     String userType = "";
 
@@ -163,7 +160,7 @@ public class LoginActivity extends AppCompatActivity {
 
                                                         binding.progressBar.setVisibility(View.INVISIBLE);
 
-                                                        startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                                                        startActivity(new Intent(LoginActivity.this, UserHomeActivity.class));
                                                         finish();
                                                     }
                                                 } else {

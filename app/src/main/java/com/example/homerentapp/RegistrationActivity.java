@@ -47,9 +47,9 @@ public class RegistrationActivity extends AppCompatActivity {
     private FirebaseUser currentUser;
 
 //    conneation to firestore
-    private FirebaseFirestore firebaseFirestore  = FirebaseFirestore.getInstance();
-    private CollectionReference collectionReferenceForuser = firebaseFirestore.collection("Users");
-    private CollectionReference collectionReferenceForbroker = firebaseFirestore.collection("Broker");
+    private final FirebaseFirestore firebaseFirestore  = FirebaseFirestore.getInstance();
+    private final CollectionReference collectionReferenceForuser = firebaseFirestore.collection("Users");
+    private final CollectionReference collectionReferenceForbroker = firebaseFirestore.collection("Broker");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -218,7 +218,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
                                                                     binding.progressBar.setVisibility(View.INVISIBLE);
 
-                                                                    startActivity(new Intent(RegistrationActivity.this,HomeActivity.class));
+                                                                    startActivity(new Intent(RegistrationActivity.this, UserHomeActivity.class));
                                                                     finish();
                                                                 }
 
@@ -280,7 +280,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
                                                                     binding.progressBar.setVisibility(View.INVISIBLE);
 
-                                                                    startActivity(new Intent(RegistrationActivity.this,HomeActivity.class));
+                                                                    startActivity(new Intent(RegistrationActivity.this, UserHomeActivity.class));
                                                                     finish();
                                                                 }
 

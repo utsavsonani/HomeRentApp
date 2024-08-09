@@ -43,7 +43,7 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".UserHomeActivity"
             android:exported="false" />
     </application>
 

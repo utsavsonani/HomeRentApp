@@ -1,7 +1,6 @@
 package com.example.homerentapp;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.Toast;
@@ -30,10 +29,10 @@ public class SplashScreenActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener authStateListener;
     private FirebaseUser currentUser;
 
-    private FirebaseFirestore firebaseFirestore  = FirebaseFirestore.getInstance();
+    private final FirebaseFirestore firebaseFirestore  = FirebaseFirestore.getInstance();
 
-    private CollectionReference collectionReferenceForUser = firebaseFirestore.collection("Users");
-    private CollectionReference collectionReferenceForBroker = firebaseFirestore.collection("Broker");
+    private final CollectionReference collectionReferenceForUser = firebaseFirestore.collection("Users");
+    private final CollectionReference collectionReferenceForBroker = firebaseFirestore.collection("Broker");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +76,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                                             homeRentApi.setPhoneNumber(snapshot.getString("phoneNumber"));
                                             homeRentApi.setUserType(snapshot.getString("userType"));
 
-                                            startActivity(new Intent(SplashScreenActivity.this, HomeActivity.class));
+                                            startActivity(new Intent(SplashScreenActivity.this, UserHomeActivity.class));
                                             finish();
                                         }
 

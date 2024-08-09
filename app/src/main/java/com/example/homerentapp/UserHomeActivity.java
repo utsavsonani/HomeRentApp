@@ -2,7 +2,6 @@ package com.example.homerentapp;
 
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -23,7 +22,7 @@ import com.example.homerentapp.databinding.ActivityHomeBinding;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class HomeActivity extends AppCompatActivity{
+public class UserHomeActivity extends AppCompatActivity{
 
 
     private ActivityHomeBinding binding;
@@ -106,8 +105,8 @@ public class HomeActivity extends AppCompatActivity{
                 else if(item.getItemId() == R.id.Logout){
 
                     firebaseAuth.signOut();
-                    Toast.makeText(HomeActivity.this, "Logout Successfully", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(HomeActivity.this,LoginActivity.class));
+                    Toast.makeText(UserHomeActivity.this, "Logout Successfully", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(UserHomeActivity.this,LoginActivity.class));
                     finish();
                     return true;
                 } 
